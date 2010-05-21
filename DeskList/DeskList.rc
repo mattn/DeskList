@@ -1,0 +1,127 @@
+#include <windows.h>
+#include "resource.h"
+//#include "afxres.h"
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+
+IDI_DESKLIST            ICON    DISCARDABLE     "DeskList.ico"
+IDI_LIST_G              ICON    DISCARDABLE     "ListG.ico"
+IDI_LIST_M              ICON    DISCARDABLE     "ListM.ico"
+IDI_LIST_L              ICON    DISCARDABLE     "ListL.ico"
+IDI_LIST_D              ICON    DISCARDABLE     "ListD.ico"
+IDI_REFRESH             ICON    DISCARDABLE     "Refresh.ico"
+IDI_LOAD                ICON    DISCARDABLE     "Load.ico"
+IDI_SAVE                ICON    DISCARDABLE     "Save.ico"
+IDI_EXIT                ICON    DISCARDABLE     "Exit.ico"
+
+IDI_CHECK               ICON    DISCARDABLE     "Check.ico"
+IDI_START               ICON    DISCARDABLE     "Start.ico"
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ACTIVEDESKTOP "アクティブデスクトップが使用されています"
+END
+
+IDM_DESKLAUNCH MENU DISCARDABLE 
+BEGIN
+    POPUP "DeskLunch"
+    BEGIN
+        MENUITEM "ウィンドウを最小化",    IDM_LAUNCH_SMALL
+        MENUITEM SEPARATOR
+    END
+END
+
+IDM_DESKLIST MENU DISCARDABLE 
+BEGIN
+    POPUP "DeskList"
+    BEGIN
+        MENUITEM "大きいアイコン(&G)"     IDM_LIST_G
+        MENUITEM "小さいアイコン(&M)"     IDM_LIST_M
+        MENUITEM "一覧(&L)"               IDM_LIST_L
+        MENUITEM "詳細(&D)"               IDM_LIST_D
+        //MENUITEM "縮小版(&H)"             IDM_LIST_H
+        MENUITEM SEPARATOR
+        POPUP "標準(&N)"
+        BEGIN
+            MENUITEM "ヘッダ非表示"           IDM_HIDE_HEADER
+            MENUITEM "スクロール非表示"       IDM_HIDE_SCROLL
+        END
+        POPUP "拡張(&E)"
+        BEGIN
+            MENUITEM "グリッドの表示"              IDM_GRIDLINES
+            MENUITEM "サブアイテムイメージの表示"  IDM_SUBITEMIMAGES GRAYED
+            MENUITEM "チェックボックスの表示"      IDM_CHECKBOXES
+            MENUITEM "ヘッダ項目の入替"            IDM_HEADERDRAGDROP
+            MENUITEM "単一行の全選択"              IDM_FULLROWSELECT
+            MENUITEM SEPARATOR
+            MENUITEM "マウス位置による選択"        IDM_TRACKSELECT
+            MENUITEM "シングルクリックで開く"      IDM_ONECLICKACTIVATE
+            MENUITEM "ダブルクリックで開く"        IDM_TWOCLICKACTIVATE
+            MENUITEM SEPARATOR
+            MENUITEM "フラットスクロールバー"      IDM_FLATSB
+            MENUITEM "リージョナル"                IDM_REGIONAL GRAYED
+            MENUITEM "インフォチップ"              IDM_INFOTIP
+            MENUITEM "アンダーラインホット"        IDM_UNDERLINEHOT
+            MENUITEM "アンダーラインコールド"      IDM_UNDERLINECOLD
+            MENUITEM "マルチワークエリア"          IDM_MULTIWORKAREAS GRAYED
+        END
+        POPUP "フック(&H)"
+        BEGIN
+            MENUITEM "デスクトップをグリッドに吸着させる"                  IDM_HOOKDSKGRID
+            MENUITEM "フォルダの余白をダブルクリックすると一階層上がる"    IDM_HOOKSHLBACK
+            MENUITEM "画面をダブルクリックするとエクスプローラを起動する"  IDM_HOOKDSKKICK
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "更新(&R)"                        IDM_REFRESH
+        MENUITEM SEPARATOR
+        POPUP "アイコンレイアウト(&I)"
+        BEGIN
+            MENUITEM "読込(&O)"                    IDM_LAYOUTLOAD
+            MENUITEM "保存(&S)"                    IDM_LAYOUTSAVE
+            MENUITEM SEPARATOR
+            MENUITEM "起動時に読込(&T)"            IDM_LAYOUTSTART
+        END
+        MENUITEM SEPARATOR
+        POPUP "スタイル(&S)"
+        BEGIN
+            MENUITEM "読込(&O)"                    IDM_STYLELOAD
+            MENUITEM "保存(&S)"                    IDM_STYLESAVE
+            MENUITEM SEPARATOR
+            MENUITEM "起動時に読込(&T)"            IDM_STYLESTART
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "終了",                           IDM_EXIT
+    END
+END
+
+VS_VERSION_INFO     VERSIONINFO
+FILEVERSION         1,1,3,0
+PRODUCTVERSION      1,1,3,0
+FILEFLAGSMASK       VS_FFI_FILEFLAGSMASK
+FILEOS              VOS__WINDOWS32
+FILETYPE            VFT_APP
+FILESUBTYPE         0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041104b0"
+        BEGIN
+            VALUE "CompanyName",      "まっつん\0"
+            VALUE "FileDescription",  "Desktop ListViewer\0"
+            VALUE "FileVersion",      "1.1.3.0\0"
+            VALUE "InternalName",     "DeskList\0"
+            VALUE "LegalCopyright",   "Copyright (C) 1999-2000\0"
+            VALUE "LegalTrademarks",  "DeskList\0"
+            VALUE "OriginalFilename", "DESKLIST.EXE\0"
+            VALUE "ProductName",      "DeskList\0"
+            VALUE "ProductVersion",   "1.1.3.0\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x411, 1200
+    END
+END
+#endif
